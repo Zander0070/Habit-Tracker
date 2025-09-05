@@ -19,13 +19,13 @@ body, html {
 }
 
 #Habit-Bar{
-    border: 1px solid black;
+    border-right: 1px solid black;
     padding: 10px;
     width: 60%;
 }
 
 #Progress-Bar{
-    border: 1px solid rgb(0, 0, 0);
+    border-left: 1px solid rgb(0, 0, 0);
     text-align: center;
     text-decoration: underline;
     width: 40%;
@@ -91,7 +91,7 @@ body, html {
     padding: 10px;
     width: 70%;
     border-radius: 5px;
-    border: 1px solid #ccc;
+ 
 }
 
 #ConfirnBtn{
@@ -133,19 +133,25 @@ body, html {
     width: 30%;
     text-align: center;
     border-radius: 15px;
-    border: 1px solid black;
+
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    transition: 0.5s ease-out;
+}
+
+#Task-Container:hover{
+    transform: scale(1.05);
+    transition: 0.5 ease-in;
 }
 
 #Progress-bar {
-   border: 1px solid green;
+  
    height: 30px;
    margin: 60px;
    border-radius: 15px;
    overflow: hidden; /* keeps inner bar rounded */
-   box-shadow: 0px 0px 20px white;
+   box-shadow: 0px 0px 20px rgb(0, 0, 0);
 }
 
 #Progresssss {
@@ -160,4 +166,31 @@ body, html {
     background-color: red;
     border-radius: 15px;
     transition: 0.5s ease-out;
+    
 }
+
+#NotePad{
+    font-size: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px black;
+    padding: 15px;
+    margin: 30px;
+    height: 70%;
+}
+
+#Footer-Section{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+#Footer-Right {
+    
+    width: 39.5%;
+    height: 67%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+

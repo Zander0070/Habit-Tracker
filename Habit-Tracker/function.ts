@@ -77,6 +77,7 @@ ConfirmHabitBtn.addEventListener("click", () => {
             if (ItemDone < 0){
                 ItemDone = 0;
             }
+            
         }
     })
 
