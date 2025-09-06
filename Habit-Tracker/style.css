@@ -1,196 +1,244 @@
+
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%; /* optional if you want full-screen height */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100%;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f7f9fc;
+    color: #222;
 }
 
 
-#Header-Bar{
-    background-color: rgb(0, 0, 0);
+#Header-Bar {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+#Header-Bar h1 {
     margin: 0;
-    padding: 10px;
+    font-size: 2rem;
+}
+#Header-Bar p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
-#Body-Bar{
-    justify-content: space-between;
-    display: flex;
-}
 
-#Habit-Bar{
-    border-right: 1px solid black;
-    padding: 10px;
-    width: 60%;
-}
-
-#Progress-Bar{
-    border-left: 1px solid rgb(0, 0, 0);
-    text-align: center;
-    text-decoration: underline;
-    width: 40%;
-}
-
-#Habit-Bar-Header{
-    text-align: center;
+#Body-Bar {
     display: flex;
     justify-content: space-between;
-    
+    gap: 20px;
+    padding: 20px;
 }
 
-#AddBtn{
-    height: 30px;
+
+#Habit-Bar {
+    flex: 3;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+#Habit-Bar-Header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    margin: 30px;
-    width: 150px;
+    margin-bottom: 15px;
+}
+
+#Habit-Bar-Header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #2c3e50;
+}
+
+
+#AddBtn {
+    height: 36px;
+    padding: 0 20px;
     border-radius: 20px;
     border: none;
-    background : linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
-    color: rgb(255, 255, 255);
-    transition: 0.5s ease-out;
-    
+    background: linear-gradient(to right, #2c5364, #203a43);
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+#AddBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.3);
 }
 
-#AddBtn:hover{
-    box-shadow: 0px 0px 20px black;
-    transition: 0.5s;
-
-   
-}
 
 #Habit-Input.Hidden {
     display: none;
 }
-
-/* Show the modal centered */
 #Habit-Input.Show {
     display: flex;
-    position: fixed; /* cover the entire viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    justify-content: center; 
-    align-items: center;    
-    
-    background-color: rgba(0,0,0,0.5); 
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
     z-index: 1000;
 }
-
-
 #Habit-Input > div {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+    min-width: 320px;
+    text-align: center;
 }
-
 #Habit-Input input {
     padding: 10px;
-    width: 70%;
-    border-radius: 5px;
- 
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+}
+#ConfirnBtn {
+    height: 36px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 20px;
+    background: #2c5364;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#ConfirnBtn:hover {
+    background: #1a2f38;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
 
-#ConfirnBtn{
-    height: 30px;
-    width: 21%;
-    transition: 0.5s ease-out;
+#List {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
 }
 
-#ConfirnBtn:hover{
-    box-shadow: 0px 0px 10px black;
+
+.Task-Container {
+    background: #fdfdfd;
+    padding: 15px;
     border-radius: 15px;
-}
-
-#RemoveBtn{
-    border-radius: 15px;
-    transition: 0.5s ease-out;
-}
-
-#RemoveBtn:hover{
-    
-    transition: 0.5s;
-}
-
-.Clicked{
-      background-color: rgb(149, 255, 149);
-      color: black;
-      border-radius: 15px;
-      transition: 0.5s ease-in;
-}
-
-.Uncliked{
-    background-color: rgb(255, 255, 255);
-    transition: 0.5s ease-out;
-}
-
-#Task-Container{
-    padding: 10px;
-    margin: 30px;
-    width: 30%;
     text-align: center;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.Task-Container:hover {
+    transform: scale(1.08);
+    filter: brightness(85%);
+}
+
+
+.Clicked {
+    background-color: #d4f8d4;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.Uncliked {
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+
+#Progress-Bar {
+    flex: 2;
+    background: white;
     border-radius: 15px;
-
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0px 0px 20px rgb(0, 0, 0);
-    transition: 0.5s ease-out;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
 }
-
-#Task-Container:hover{
-    transform: scale(1.05);
-    transition: 0.5 ease-in;
+#Progress-Bar h1 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
-
 #Progress-bar {
-  
    height: 30px;
-   margin: 60px;
-   border-radius: 15px;
-   overflow: hidden; /* keeps inner bar rounded */
-   box-shadow: 0px 0px 20px rgb(0, 0, 0);
+   margin: 20px auto;
+   border-radius: 20px;
+   background: #e0e0e0;
+   overflow: hidden;
+   box-shadow: inset 0px 2px 6px rgba(0,0,0,0.2);
+   width: 80%;
 }
-
 #Progresssss {
-   background-color: rgb(0, 0, 0);
+   background: linear-gradient(to right, #2c5364, #0f2027);
    height: 100%;    
    width: 0%;       
-   border-radius: inherit;
    transition: width 0.5s ease; 
 }
 
-.RemoveBtn2:hover{
-    background-color: red;
-    border-radius: 15px;
-    transition: 0.5s ease-out;
-    
-}
 
-#NotePad{
-    font-size: 15px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px black;
-    padding: 15px;
-    margin: 30px;
-    height: 70%;
-}
-
-#Footer-Section{
-    width: 100%;
-    justify-content: space-between;
+#Footer-Section {
     display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    background: #f4f6f9;
+    border-top: 3px solid #2c5364;
 }
-
 #Footer-Right {
-    
-    width: 39.5%;
-    height: 67%;
+    flex: 1;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+}
+#Footer-Right h1 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+#NotePad {
+    width: 100%;
+    min-height: 200px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    padding: 15px;
+    resize: vertical;
 }
 
+
+#Bottom-Bar {
+   width: 100%;
+   text-align: center;
+   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+   color: white;
+   padding: 15px;
+   margin-top: 20px;
+   font-style: italic;
+   font-size: 1rem;
+   box-shadow: 0px -2px 10px rgba(0,0,0,0.2);
+}
+
+
+.RemoveBtn2{
+    border-radius: 15px;
+    padding: 2px;
+    margin: 5px;
+    background-color: #0f2027;
+    color: white;
+    height: 30px;
+    width: 120px;
+}
+
+.remove-btn{
+    border-radius: 15px;
+    padding: 2px;
+    margin: 5px;
+    height: 30px;
+    width: 120px;
+}
+
+#List{
+    list-style: none;
+}

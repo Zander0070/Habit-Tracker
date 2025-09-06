@@ -5,6 +5,7 @@ const InputHabit = document.getElementById('Input') as HTMLInputElement;
 const ListOfHabits = document.getElementById('List') as HTMLUListElement;
 const ProgressBar = document.getElementById('Progresssss') as HTMLDivElement;
 const ProgressText = document.getElementById('Progress-Text') as HTMLHeadElement;
+const UrgencyLevel = document.getElementById('UrgencySelect') as HTMLOptionElement;
 
 AddHabitBtn.addEventListener("click", () => {
     AddListPage.classList.remove("Hidden");
@@ -18,20 +19,23 @@ let TotalProgress = 0;
 
 ConfirmHabitBtn.addEventListener("click", () => {
     const text = InputHabit.value.trim();
+    const Urgency = UrgencyLevel.value.trim();
     if (text === "") return;
 
     Counter++;
     TotalProgress++;
 
     const li = document.createElement('li');
-    li.innerHTML = `
-        <div id="Task-Container">
-            Task ${Counter} : ${text}  
-            <div> <button class="remove-btn Uncliked">Complete Btn</button>
-            <button Class="RemoveBtn2">Remove Task Btn</button></div>
-           
+  li.innerHTML = `
+    <div class="Task-Container">
+        <h4>Task ${Counter} : ${text}</h4>
+        <h5>Urgency Level : ${Urgency}</h5>
+        <div>
+            <button class="remove-btn Uncliked">Complete Btn</button>
+            <button class="RemoveBtn2">Remove Task Btn</button>
         </div>
-    `;
+    </div>
+`;
     
     let Clicked = false;
     const removeBtn = li.querySelector(".remove-btn") as HTMLButtonElement;

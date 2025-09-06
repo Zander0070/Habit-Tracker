@@ -5,6 +5,7 @@ var InputHabit = document.getElementById('Input');
 var ListOfHabits = document.getElementById('List');
 var ProgressBar = document.getElementById('Progresssss');
 var ProgressText = document.getElementById('Progress-Text');
+var UrgencyLevel = document.getElementById('UrgencySelect');
 AddHabitBtn.addEventListener("click", function () {
     AddListPage.classList.remove("Hidden");
     AddListPage.classList.add("Show");
@@ -15,12 +16,13 @@ var ItemDone = 0;
 var TotalProgress = 0;
 ConfirmHabitBtn.addEventListener("click", function () {
     var text = InputHabit.value.trim();
+    var Urgency = UrgencyLevel.value.trim();
     if (text === "")
         return;
     Counter++;
     TotalProgress++;
     var li = document.createElement('li');
-    li.innerHTML = "\n        <div id=\"Task-Container\">\n            Task ".concat(Counter, " : ").concat(text, "  \n            <div> <button class=\"remove-btn Uncliked\">Complete Btn</button>\n            <button Class=\"RemoveBtn2\">Remove Task Btn</button></div>\n           \n        </div>\n    ");
+    li.innerHTML = "\n    <div class=\"Task-Container\">\n        <h4>Task ".concat(Counter, " : ").concat(text, "</h4>\n        <h5>Urgency Level : ").concat(Urgency, "</h5>\n        <div>\n            <button class=\"remove-btn Uncliked\">Complete Btn</button>\n            <button class=\"RemoveBtn2\">Remove Task Btn</button>\n        </div>\n    </div>\n");
     var Clicked = false;
     var removeBtn = li.querySelector(".remove-btn");
     removeBtn.addEventListener("click", function () {
